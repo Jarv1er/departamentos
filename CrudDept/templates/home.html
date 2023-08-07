@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %} Departamentos {% endblock %}
+
+{% block body %}
+
+<div class="row dl-flex justify-content-center">
+    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-8">
+        <h2>Departamentos</h2>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible alert-success">
+            {{ message }}
+            <a href="" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <div class="table-responsive py-3">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Dept_no</th>
+                        <th>Dnombre</th>
+                        <th>Localidad</th>
+                        <th colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dept in departamentos %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ dept.0 }}</td>
+                        <td>{{ dept.1 }}</td>
+                        <td>{{ dept.2 }}</td>
+                        <td><a href="editar?num={{dept.0}}" class="btn btn-success">Editar</a></td>
+                        <td><a href="eliminar?num={{dept.0}}" class="btn btn-danger">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="insertar" class="btn btn-primary">Nuevo</a>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

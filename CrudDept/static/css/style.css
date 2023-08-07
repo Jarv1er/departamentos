@@ -1,0 +1,9 @@
+th, td{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.navbar-light .navbar-brand {
+    color: #e9ecef;
+    margin: auto;
+}
